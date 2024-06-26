@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modal_families",
+  "info": {
+    "singularName": "modal-family",
+    "pluralName": "modal-families",
+    "displayName": "Modal Family",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand.brand"
+    }
+  }
+}

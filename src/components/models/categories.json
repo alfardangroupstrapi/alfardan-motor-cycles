@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_models_categories",
+  "info": {
+    "displayName": "Family Names",
+    "icon": "oneToMany",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand.brand"
+    },
+    "modal_family": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::modal-family.modal-family"
+    }
+  }
+}

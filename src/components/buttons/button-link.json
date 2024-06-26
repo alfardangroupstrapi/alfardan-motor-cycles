@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_buttons_button_links",
+  "info": {
+    "displayName": "buttonLink",
+    "icon": "attachment",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    },
+    "Target": {
+      "type": "enumeration",
+      "enum": [
+        "_blank",
+        "_self"
+      ],
+      "default": "_self"
+    },
+    "buttonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "theme",
+        "primary",
+        "secondary"
+      ],
+      "default": "theme"
+    },
+    "enableButton": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
