@@ -10,10 +10,13 @@ const populate = {
       brands: {
         populate: true,
       },
-      modal_family: {
+      model_family: {
         populate: true,
       },
     },
+  },
+  featuredPic: {
+    populate: true,
   },
   headerHero: {
     populate: {

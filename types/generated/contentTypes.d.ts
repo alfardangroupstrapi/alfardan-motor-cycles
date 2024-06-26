@@ -1072,6 +1072,134 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   };
 }
 
+export interface ApiLifestyleLifestyle extends Schema.CollectionType {
+  collectionName: 'lifestyles';
+  info: {
+    singularName: 'lifestyle';
+    pluralName: 'lifestyles';
+    displayName: 'Lifestyle';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    brand: Attribute.Relation<
+      'api::lifestyle.lifestyle',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    category: Attribute.Relation<
+      'api::lifestyle.lifestyle',
+      'oneToOne',
+      'api::lifestyle-category.lifestyle-category'
+    >;
+    subCategory: Attribute.Relation<
+      'api::lifestyle.lifestyle',
+      'oneToOne',
+      'api::lifestyle-sub-category.lifestyle-sub-category'
+    >;
+    partNumber: Attribute.BigInteger;
+    featuredImage: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lifestyle.lifestyle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lifestyle.lifestyle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLifestyleCategoryLifestyleCategory
+  extends Schema.CollectionType {
+  collectionName: 'lifestyle_categories';
+  info: {
+    singularName: 'lifestyle-category';
+    pluralName: 'lifestyle-categories';
+    displayName: 'Lifestyle Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    slug: Attribute.UID<'api::lifestyle-category.lifestyle-category', 'name'>;
+    subCategories: Attribute.Relation<
+      'api::lifestyle-category.lifestyle-category',
+      'oneToMany',
+      'api::lifestyle-sub-category.lifestyle-sub-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lifestyle-category.lifestyle-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lifestyle-category.lifestyle-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLifestyleSubCategoryLifestyleSubCategory
+  extends Schema.CollectionType {
+  collectionName: 'lifestyle_sub_categories';
+  info: {
+    singularName: 'lifestyle-sub-category';
+    pluralName: 'lifestyle-sub-categories';
+    displayName: 'Lifestyle Sub Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    slug: Attribute.UID<
+      'api::lifestyle-sub-category.lifestyle-sub-category',
+      'name'
+    >;
+    parentCategory: Attribute.Relation<
+      'api::lifestyle-sub-category.lifestyle-sub-category',
+      'manyToOne',
+      'api::lifestyle-category.lifestyle-category'
+    >;
+    icon: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lifestyle-sub-category.lifestyle-sub-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lifestyle-sub-category.lifestyle-sub-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiListOfModelListOfModel extends Schema.CollectionType {
   collectionName: 'list_of_models';
   info: {
@@ -1095,6 +1223,7 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
         }
       >;
     headerHero: Attribute.Component<'brand-single-page.header-hero'>;
+    featuredPic: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1113,12 +1242,12 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
   };
 }
 
-export interface ApiModalFamilyModalFamily extends Schema.CollectionType {
-  collectionName: 'modal_families';
+export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
+  collectionName: 'model_families';
   info: {
-    singularName: 'modal-family';
-    pluralName: 'modal-families';
-    displayName: 'Modal Family';
+    singularName: 'model-family';
+    pluralName: 'model-families';
+    displayName: 'Model Family';
     description: '';
   };
   options: {
@@ -1126,9 +1255,9 @@ export interface ApiModalFamilyModalFamily extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    slug: Attribute.UID<'api::modal-family.modal-family', 'name'>;
+    slug: Attribute.UID<'api::model-family.model-family', 'name'>;
     brands: Attribute.Relation<
-      'api::modal-family.modal-family',
+      'api::model-family.model-family',
       'oneToMany',
       'api::brand.brand'
     >;
@@ -1136,13 +1265,13 @@ export interface ApiModalFamilyModalFamily extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::modal-family.modal-family',
+      'api::model-family.model-family',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::modal-family.modal-family',
+      'api::model-family.model-family',
       'oneToOne',
       'admin::user'
     > &
@@ -1216,8 +1345,11 @@ declare module '@strapi/types' {
       'plugin::navigation.navigations-items-related': PluginNavigationNavigationsItemsRelated;
       'plugin::slugify.slug': PluginSlugifySlug;
       'api::brand.brand': ApiBrandBrand;
+      'api::lifestyle.lifestyle': ApiLifestyleLifestyle;
+      'api::lifestyle-category.lifestyle-category': ApiLifestyleCategoryLifestyleCategory;
+      'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
       'api::list-of-model.list-of-model': ApiListOfModelListOfModel;
-      'api::modal-family.modal-family': ApiModalFamilyModalFamily;
+      'api::model-family.model-family': ApiModelFamilyModelFamily;
       'api::new-bike.new-bike': ApiNewBikeNewBike;
     }
   }

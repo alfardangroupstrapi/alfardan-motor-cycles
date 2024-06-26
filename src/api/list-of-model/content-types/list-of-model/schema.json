@@ -33,6 +33,14 @@
       "type": "component",
       "repeatable": false,
       "component": "brand-single-page.header-hero"
+    },
+    "featuredPic": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

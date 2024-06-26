@@ -12,10 +12,10 @@
       "relation": "oneToMany",
       "target": "api::brand.brand"
     },
-    "modal_family": {
+    "model_family": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::modal-family.modal-family"
+      "target": "api::model-family.model-family"
     }
   }
 }

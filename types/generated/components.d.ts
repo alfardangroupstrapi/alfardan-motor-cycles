@@ -69,10 +69,10 @@ export interface ModelsCategories extends Schema.Component {
       'oneToMany',
       'api::brand.brand'
     >;
-    modal_family: Attribute.Relation<
+    model_family: Attribute.Relation<
       'models.categories',
       'oneToOne',
-      'api::modal-family.modal-family'
+      'api::model-family.model-family'
     >;
   };
 }
@@ -112,6 +112,57 @@ export interface NavigationSocialMedia extends Schema.Component {
   };
 }
 
+export interface SharedMetaSocial extends Schema.Component {
+  collectionName: 'components_shared_meta_socials';
+  info: {
+    displayName: 'metaSocial';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
+      Attribute.Required;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedSeo extends Schema.Component {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'search';
+  };
+  attributes: {
+    metaTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    metaDescription: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 50;
+        maxLength: 160;
+      }>;
+    metaImage: Attribute.Media<'images' | 'files' | 'videos'>;
+    metaSocial: Attribute.Component<'shared.meta-social', true>;
+    keywords: Attribute.Text;
+    metaRobots: Attribute.String;
+    structuredData: Attribute.JSON;
+    metaViewport: Attribute.String;
+    canonicalURL: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -123,6 +174,8 @@ declare module '@strapi/types' {
       'models.description-tabs': ModelsDescriptionTabs;
       'navigation.menu-link': NavigationMenuLink;
       'navigation.social-media': NavigationSocialMedia;
+      'shared.meta-social': SharedMetaSocial;
+      'shared.seo': SharedSeo;
     }
   }
 }
