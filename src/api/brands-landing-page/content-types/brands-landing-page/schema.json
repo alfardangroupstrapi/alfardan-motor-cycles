@@ -44,6 +44,12 @@
       "type": "component",
       "repeatable": false,
       "component": "brand-single-page.footer"
+    },
+    "primaryNavbar": {
+      "displayName": "Header",
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.header"
     }
   }
 }
