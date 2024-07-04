@@ -1087,11 +1087,6 @@ export interface ApiBrandsLandingPageBrandsLandingPage
   };
   attributes: {
     pageTitle: Attribute.String;
-    slug: Attribute.UID<
-      'api::brands-landing-page.brands-landing-page',
-      'pageTitle'
-    > &
-      Attribute.Required;
     brand: Attribute.Relation<
       'api::brands-landing-page.brands-landing-page',
       'oneToOne',

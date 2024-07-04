@@ -15,11 +15,6 @@
     "pageTitle": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "pageTitle",
-      "required": true
-    },
     "brand": {
       "type": "relation",
       "relation": "oneToOne",
