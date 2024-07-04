@@ -34,10 +34,32 @@ const populate = {
 };
 
 module.exports = (config, { strapi }) => {
-  // Add your own logic here.
   return async (ctx, next) => {
     strapi.log.info("In list-of-models-populate middleware.");
+    const { query } = ctx;
+    strapi.log.info(`Query before modification: ${JSON.stringify(query)}`);
+
+    if (query["brand-id"]) {
+      const brandId = query["brand-id"];
+      delete query["brand-id"];
+
+      // Apply filters to only include models with the specified brand ID
+      query.filters = {
+        $and: [
+          query.filters || {},
+          {
+            brandFamily: {
+              brands: {
+                id: brandId,
+              },
+            },
+          },
+        ],
+      };
+    }
+
     ctx.query = { populate, ...ctx.query };
+    strapi.log.info(`Query after modification: ${JSON.stringify(ctx.query)}`);
     await next();
   };
 };

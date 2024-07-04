@@ -1054,6 +1054,7 @@ export interface ApiBrandBrand extends Schema.CollectionType {
     logo: Attribute.Media<'images'> & Attribute.Required;
     brandPrimaryColor: Attribute.String;
     brandSecondaryColor: Attribute.String;
+    slug: Attribute.UID<'api::brand.brand', 'name'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1065,6 +1066,53 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBrandsLandingPageBrandsLandingPage
+  extends Schema.CollectionType {
+  collectionName: 'brands_landing_pages';
+  info: {
+    singularName: 'brands-landing-page';
+    pluralName: 'brands-landing-pages';
+    displayName: 'Brands Landing Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.String;
+    slug: Attribute.UID<
+      'api::brands-landing-page.brands-landing-page',
+      'pageTitle'
+    > &
+      Attribute.Required;
+    brand: Attribute.Relation<
+      'api::brands-landing-page.brands-landing-page',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    headerHero: Attribute.Component<'brand-single-page.header-hero'>;
+    listOfAvailableModels: Attribute.Component<'brand-single-page.list-of-available-models'>;
+    parallaxBannerSection: Attribute.Component<'brand-single-page.header-hero'>;
+    knowMoreSection: Attribute.Component<'brand-single-page.header-hero'>;
+    footerWidgets: Attribute.Component<'brand-single-page.footer'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::brands-landing-page.brands-landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::brands-landing-page.brands-landing-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1345,6 +1393,7 @@ declare module '@strapi/types' {
       'plugin::navigation.navigations-items-related': PluginNavigationNavigationsItemsRelated;
       'plugin::slugify.slug': PluginSlugifySlug;
       'api::brand.brand': ApiBrandBrand;
+      'api::brands-landing-page.brands-landing-page': ApiBrandsLandingPageBrandsLandingPage;
       'api::lifestyle.lifestyle': ApiLifestyleLifestyle;
       'api::lifestyle-category.lifestyle-category': ApiLifestyleCategoryLifestyleCategory;
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;

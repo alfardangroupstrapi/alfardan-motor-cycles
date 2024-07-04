@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brands_landing_pages",
+  "info": {
+    "singularName": "brands-landing-page",
+    "pluralName": "brands-landing-pages",
+    "displayName": "Brands Landing Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "pageTitle",
+      "required": true
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "headerHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.header-hero"
+    },
+    "listOfAvailableModels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.list-of-available-models"
+    },
+    "parallaxBannerSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.header-hero"
+    },
+    "knowMoreSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.header-hero"
+    },
+    "footerWidgets": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.footer"
+    }
+  }
+}
