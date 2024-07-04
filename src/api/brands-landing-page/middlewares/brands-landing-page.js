@@ -18,7 +18,11 @@ const populate = {
         populate: true,
       },
       topLinks: {
-        populate: true,
+        populate: {
+          brandSloganImage: {
+            populate: true,
+          },
+        },
       },
       navbar: {
         populate: true,
