@@ -8,6 +8,19 @@ const populate = {
   brand: {
     populate: true,
   },
+  primaryNavbar: {
+    populate: {
+      logoPosition: {
+        populate: true,
+      },
+      topLinks: {
+        populate: true,
+      },
+      navbar: {
+        populate: true,
+      },
+    },
+  },
   headerHero: {
     populate: {
       heroImage: {
