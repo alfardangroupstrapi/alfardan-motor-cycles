@@ -1327,48 +1327,6 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
   };
 }
 
-export interface ApiNewBikeNewBike extends Schema.CollectionType {
-  collectionName: 'new_bikes';
-  info: {
-    singularName: 'new-bike';
-    pluralName: 'new-bikes';
-    displayName: 'New Bike';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    pageTitle: Attribute.String & Attribute.Required;
-    slug: Attribute.UID & Attribute.Required;
-    brands: Attribute.Relation<
-      'api::new-bike.new-bike',
-      'oneToOne',
-      'api::brand.brand'
-    >;
-    headerHero: Attribute.Component<'brand-single-page.header-hero'>;
-    listOfAvailableModels: Attribute.Component<'brand-single-page.list-of-available-models'>;
-    parallaxBannerSection: Attribute.Component<'brand-single-page.header-hero'>;
-    knowMoreSection: Attribute.Component<'brand-single-page.header-hero'>;
-    footerWidgets: Attribute.Component<'brand-single-page.footer'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::new-bike.new-bike',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::new-bike.new-bike',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1399,7 +1357,6 @@ declare module '@strapi/types' {
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
       'api::list-of-model.list-of-model': ApiListOfModelListOfModel;
       'api::model-family.model-family': ApiModelFamilyModelFamily;
-      'api::new-bike.new-bike': ApiNewBikeNewBike;
     }
   }
 }

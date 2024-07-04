@@ -5,6 +5,9 @@
  */
 
 const populate = {
+  brand: {
+    populate: true,
+  },
   headerHero: {
     populate: {
       heroImage: {
