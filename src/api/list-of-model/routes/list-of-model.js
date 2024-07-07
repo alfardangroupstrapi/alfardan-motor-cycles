@@ -11,5 +11,8 @@ module.exports = createCoreRouter("api::list-of-model.list-of-model", {
     find: {
       middlewares: ["api::list-of-model.list-of-models"],
     },
+    findOne: {
+      middlewares: ["api::list-of-model.list-of-models"],
+    },
   },
 });
