@@ -11,6 +11,10 @@
     },
     "path": {
       "type": "string"
+    },
+    "isEnquiryFormModal": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
