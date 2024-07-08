@@ -1,15 +1,23 @@
 {
   "collectionName": "components_navigation_menu_links",
   "info": {
-    "displayName": "Menu Link"
+    "displayName": "Menu Link",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Label": {
       "type": "string"
     },
-    "Path": {
+    "url": {
       "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "isEnquiryFormModal": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
