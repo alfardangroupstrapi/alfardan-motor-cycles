@@ -9,15 +9,8 @@
     "Label": {
       "type": "string"
     },
-    "url": {
-      "type": "string"
-    },
     "path": {
       "type": "string"
-    },
-    "isEnquiryFormModal": {
-      "type": "boolean",
-      "default": false
     }
   }
 }
