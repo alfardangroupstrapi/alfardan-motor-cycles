@@ -96,9 +96,7 @@ export interface NavigationMenuLink extends Schema.Component {
   };
   attributes: {
     Label: Attribute.String;
-    Path: Attribute.String;
-    url: Attribute.String;
-    isEnquiryFormModal: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Path: Attribute.String;    
   };
 }
 
