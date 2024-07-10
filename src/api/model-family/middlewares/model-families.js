@@ -10,7 +10,6 @@ const populate = {
   },
 };
 
-
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
     strapi.log.info("In model-families-populate middleware.");
