@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lifestyle_categories",
+  "info": {
+    "singularName": "lifestyle-category",
+    "pluralName": "lifestyle-categories",
+    "displayName": "Lifestyle Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "subCategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lifestyle-sub-category.lifestyle-sub-category",
+      "mappedBy": "parentCategory"
+    }
+  }
+}

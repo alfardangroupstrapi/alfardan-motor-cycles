@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_brand_single_page_top_links",
+  "info": {
+    "displayName": "topLinks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "brandSloganText": {
+      "type": "string"
+    },
+    "brandSloganImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "contactUsLabel": {
+      "type": "string"
+    },
+    "contactUsURL": {
+      "type": "string"
+    }
+  }
+}

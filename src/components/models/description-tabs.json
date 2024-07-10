@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_models_description_tabs",
+  "info": {
+    "displayName": "Description Tabs"
+  },
+  "options": {},
+  "attributes": {
+    "overview": {
+      "type": "richtext"
+    },
+    "techSpecs": {
+      "type": "richtext"
+    },
+    "individualisation": {
+      "type": "richtext"
+    }
+  }
+}

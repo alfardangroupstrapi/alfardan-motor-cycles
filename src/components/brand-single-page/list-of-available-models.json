@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_brand_single_page_list_of_available_models",
+  "info": {
+    "displayName": "List of Available Models"
+  },
+  "options": {},
+  "attributes": {
+    "blockTitle": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_of_models",
+  "info": {
+    "singularName": "list-of-model",
+    "pluralName": "list-of-models",
+    "displayName": "List of Model",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "brandFamily": {
+      "type": "component",
+      "repeatable": false,
+      "component": "models.categories"
+    },
+    "techSpecs": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "headerHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.header-hero"
+    },
+    "featuredPic": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

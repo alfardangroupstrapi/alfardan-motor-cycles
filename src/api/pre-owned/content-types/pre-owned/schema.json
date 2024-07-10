@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pre_owneds",
+  "info": {
+    "singularName": "pre-owned",
+    "pluralName": "pre-owneds",
+    "displayName": "PRE-OWNED",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "stickerPrice": {
+      "type": "integer",
+      "required": true
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "yearModel": {
+      "type": "biginteger"
+    },
+    "warranty": {
+      "type": "string"
+    },
+    "additionalAccessories": {
+      "type": "text"
+    },
+    "engine": {
+      "type": "integer"
+    },
+    "millage": {
+      "type": "integer"
+    }
+  }
+}

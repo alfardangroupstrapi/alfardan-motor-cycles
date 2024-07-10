@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_brand_single_page_headers",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logoPosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "centre",
+        "right"
+      ],
+      "required": true,
+      "default": "left"
+    },
+    "navbar": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.menu-link",
+      "required": true
+    },
+    "topLinks": {
+      "displayName": "topLinks",
+      "type": "component",
+      "repeatable": false,
+      "component": "brand-single-page.top-links"
+    }
+  }
+}

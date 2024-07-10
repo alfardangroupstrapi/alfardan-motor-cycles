@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_brand_single_page_header_heroes",
+  "info": {
+    "displayName": "HeroBanner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "captionSubTitle": {
+      "type": "string"
+    },
+    "captionMainTitle": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.button-link"
+    },
+    "heroVideo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    }
+  }
+}
