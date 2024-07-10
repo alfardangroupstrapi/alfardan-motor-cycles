@@ -1097,6 +1097,7 @@ export interface ApiBrandsLandingPageBrandsLandingPage
     parallaxBannerSection: Attribute.Component<'brand-single-page.header-hero'>;
     knowMoreSection: Attribute.Component<'brand-single-page.header-hero'>;
     footerWidgets: Attribute.Component<'brand-single-page.footer'>;
+    primaryNavbar: Attribute.Component<'brand-single-page.header'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1108,6 +1109,43 @@ export interface ApiBrandsLandingPageBrandsLandingPage
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::brands-landing-page.brands-landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
+  collectionName: 'home_landing_pages';
+  info: {
+    singularName: 'home-landing-page';
+    pluralName: 'home-landing-pages';
+    displayName: 'Home Landing Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    HeroSlider: Attribute.Component<'component.hero-slider'>;
+    brandGroupCarousel: Attribute.Component<
+      'repeater-components.brands-group-carousel',
+      true
+    >;
+    latestArrivals: Attribute.Component<'home-landing-page.latest-arrivals'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-landing-page.home-landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-landing-page.home-landing-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1322,6 +1360,51 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
   };
 }
 
+export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
+  collectionName: 'pre_owneds';
+  info: {
+    singularName: 'pre-owned';
+    pluralName: 'pre-owneds';
+    displayName: 'PRE-OWNED';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    stickerPrice: Attribute.Integer & Attribute.Required;
+    brand: Attribute.Relation<
+      'api::pre-owned.pre-owned',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    featuredImage: Attribute.Media<'images'> & Attribute.Required;
+    gallery: Attribute.Media<'images', true>;
+    color: Attribute.String;
+    yearModel: Attribute.BigInteger;
+    warranty: Attribute.String;
+    additionalAccessories: Attribute.Text;
+    engine: Attribute.Integer;
+    millage: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pre-owned.pre-owned',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pre-owned.pre-owned',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1347,11 +1430,13 @@ declare module '@strapi/types' {
       'plugin::slugify.slug': PluginSlugifySlug;
       'api::brand.brand': ApiBrandBrand;
       'api::brands-landing-page.brands-landing-page': ApiBrandsLandingPageBrandsLandingPage;
+      'api::home-landing-page.home-landing-page': ApiHomeLandingPageHomeLandingPage;
       'api::lifestyle.lifestyle': ApiLifestyleLifestyle;
       'api::lifestyle-category.lifestyle-category': ApiLifestyleCategoryLifestyleCategory;
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
       'api::list-of-model.list-of-model': ApiListOfModelListOfModel;
       'api::model-family.model-family': ApiModelFamilyModelFamily;
+      'api::pre-owned.pre-owned': ApiPreOwnedPreOwned;
     }
   }
 }
