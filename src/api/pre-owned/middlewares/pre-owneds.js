@@ -6,8 +6,10 @@
 
 const populate = {
   brand: {
-    logo: {
-      populate: true,
+    populate: {
+      logo: {
+        populate: true,
+      },
     },
   },
   gallery: {
