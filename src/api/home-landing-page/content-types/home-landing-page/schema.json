@@ -24,6 +24,11 @@
       "type": "component",
       "repeatable": true,
       "component": "repeater-components.brands-group-carousel"
+    },
+    "latestArrivals": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-landing-page.latest-arrivals"
     }
   }
 }
