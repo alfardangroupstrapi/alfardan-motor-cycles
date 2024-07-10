@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_component_featured_images",
+  "info": {
+    "displayName": "Featured Image",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "featuredImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

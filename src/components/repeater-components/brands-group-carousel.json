@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_component_brands_group_carousels",
+  "info": {
+    "displayName": "Brands Group Item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "BrandsGroup": {
+      "type": "component",
+      "repeatable": true,
+      "component": "repeater-components.brand"
+    }
+  }
+}

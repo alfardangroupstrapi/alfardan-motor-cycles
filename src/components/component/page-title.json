@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_component_page_titles",
+  "info": {
+    "displayName": "Title",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "featuredImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.featured-image"
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.gallery"
+    },
+    "additionalInfo": {
+      "type": "text"
+    }
+  }
+}

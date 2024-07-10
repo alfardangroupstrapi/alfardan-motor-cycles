@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_component_hero_sliders",
+  "info": {
+    "displayName": "Hero Slider",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "slideItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "repeater-components.slider-item"
+    }
+  }
+}
