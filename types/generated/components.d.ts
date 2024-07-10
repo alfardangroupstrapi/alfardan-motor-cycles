@@ -28,22 +28,6 @@ export interface BrandSinglePageHeaderHero extends Schema.Component {
   };
 }
 
-export interface BrandSinglePageHeader extends Schema.Component {
-  collectionName: 'components_brand_single_page_headers';
-  info: {
-    displayName: 'Header';
-    description: '';
-  };
-  attributes: {
-    logoPosition: Attribute.Enumeration<['left', 'centre', 'right']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'left'>;
-    navbar: Attribute.Component<'navigation.menu-link', true> &
-      Attribute.Required;
-    topLinks: Attribute.Component<'brand-single-page.top-links'>;
-  };
-}
-
 export interface BrandSinglePageListOfAvailableModels extends Schema.Component {
   collectionName: 'components_brand_single_page_list_of_available_models';
   info: {
@@ -51,20 +35,6 @@ export interface BrandSinglePageListOfAvailableModels extends Schema.Component {
   };
   attributes: {
     blockTitle: Attribute.String;
-  };
-}
-
-export interface BrandSinglePageTopLinks extends Schema.Component {
-  collectionName: 'components_brand_single_page_top_links';
-  info: {
-    displayName: 'topLinks';
-    description: '';
-  };
-  attributes: {
-    brandSloganText: Attribute.String;
-    brandSloganImage: Attribute.Media<'images'>;
-    contactUsLabel: Attribute.String;
-    contactUsURL: Attribute.String;
   };
 }
 
@@ -80,93 +50,9 @@ export interface ButtonsButtonLink extends Schema.Component {
     URL: Attribute.String;
     Target: Attribute.Enumeration<['_blank', '_self']> &
       Attribute.DefaultTo<'_self'>;
-    buttonStyle: Attribute.Enumeration<
-      ['primary', 'secondary', 'primary-outline', 'secondary-outline']
-    > &
-      Attribute.DefaultTo<'primary'>;
+    buttonStyle: Attribute.Enumeration<['theme', 'primary', 'secondary']> &
+      Attribute.DefaultTo<'theme'>;
     enableButton: Attribute.Boolean & Attribute.DefaultTo<true>;
-  };
-}
-
-export interface ComponentFeaturedImage extends Schema.Component {
-  collectionName: 'components_component_featured_images';
-  info: {
-    displayName: 'Featured Image';
-    icon: 'landscape';
-  };
-  attributes: {
-    featuredImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface ComponentGallery extends Schema.Component {
-  collectionName: 'components_component_galleries';
-  info: {
-    displayName: 'Gallery';
-    icon: 'landscape';
-  };
-  attributes: {
-    gallery: Attribute.Media<'images', true>;
-  };
-}
-
-export interface ComponentHeroSlider extends Schema.Component {
-  collectionName: 'components_component_hero_sliders';
-  info: {
-    displayName: 'Hero Slider';
-    icon: 'landscape';
-    description: '';
-  };
-  attributes: {
-    slideItem: Attribute.Component<'repeater-components.slider-item', true>;
-  };
-}
-
-export interface ComponentPageTitle extends Schema.Component {
-  collectionName: 'components_component_page_titles';
-  info: {
-    displayName: 'Title';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    price: Attribute.Integer;
-    brand: Attribute.Relation<
-      'component.page-title',
-      'oneToOne',
-      'api::brand.brand'
-    >;
-    featuredImage: Attribute.Component<'component.featured-image'>;
-    gallery: Attribute.Component<'component.gallery'>;
-    additionalInfo: Attribute.Text;
-  };
-}
-
-export interface ElementsLandingSection extends Schema.Component {
-  collectionName: 'components_elements_landing_sections';
-  info: {
-    displayName: 'Landing Section';
-    icon: 'dashboard';
-  };
-  attributes: {
-    sectionTitle: Attribute.String;
-    sectionButton: Attribute.Component<'buttons.button-link'>;
-  };
-}
-
-export interface HomeLandingPageLatestArrivals extends Schema.Component {
-  collectionName: 'components_home_landing_page_latest_arrivals';
-  info: {
-    displayName: 'Latest Arrivals';
-  };
-  attributes: {
-    sectionTitle: Attribute.String;
-    ListofModels: Attribute.Relation<
-      'home-landing-page.latest-arrivals',
-      'oneToMany',
-      'api::list-of-model.list-of-model'
-    >;
-    button: Attribute.Component<'buttons.button-link'>;
   };
 }
 
@@ -207,11 +93,10 @@ export interface NavigationMenuLink extends Schema.Component {
   collectionName: 'components_navigation_menu_links';
   info: {
     displayName: 'Menu Link';
-    description: '';
   };
   attributes: {
     Label: Attribute.String;
-    path: Attribute.String;
+    Path: Attribute.String;
     isEnquiryFormModal: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
@@ -225,44 +110,6 @@ export interface NavigationSocialMedia extends Schema.Component {
   attributes: {
     icon: Attribute.Enumeration<['Facebook', 'Instagram', 'X', 'YouTube']>;
     url: Attribute.String;
-  };
-}
-
-export interface RepeaterComponentsBrand extends Schema.Component {
-  collectionName: 'components_repeater_components_brands';
-  info: {
-    displayName: 'Brand';
-  };
-  attributes: {
-    brand: Attribute.Relation<
-      'repeater-components.brand',
-      'oneToOne',
-      'api::brand.brand'
-    >;
-  };
-}
-
-export interface RepeaterComponentsBrandsGroupCarousel
-  extends Schema.Component {
-  collectionName: 'components_component_brands_group_carousels';
-  info: {
-    displayName: 'Brands Group Item';
-    description: '';
-  };
-  attributes: {
-    BrandsGroup: Attribute.Component<'repeater-components.brand', true>;
-  };
-}
-
-export interface RepeaterComponentsSliderItem extends Schema.Component {
-  collectionName: 'components_component_slider_items';
-  info: {
-    displayName: 'Slider Item';
-    icon: 'landscape';
-    description: '';
-  };
-  attributes: {
-    slideImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -322,23 +169,12 @@ declare module '@strapi/types' {
     export interface Components {
       'brand-single-page.footer': BrandSinglePageFooter;
       'brand-single-page.header-hero': BrandSinglePageHeaderHero;
-      'brand-single-page.header': BrandSinglePageHeader;
       'brand-single-page.list-of-available-models': BrandSinglePageListOfAvailableModels;
-      'brand-single-page.top-links': BrandSinglePageTopLinks;
       'buttons.button-link': ButtonsButtonLink;
-      'component.featured-image': ComponentFeaturedImage;
-      'component.gallery': ComponentGallery;
-      'component.hero-slider': ComponentHeroSlider;
-      'component.page-title': ComponentPageTitle;
-      'elements.landing-section': ElementsLandingSection;
-      'home-landing-page.latest-arrivals': HomeLandingPageLatestArrivals;
       'models.categories': ModelsCategories;
       'models.description-tabs': ModelsDescriptionTabs;
       'navigation.menu-link': NavigationMenuLink;
       'navigation.social-media': NavigationSocialMedia;
-      'repeater-components.brand': RepeaterComponentsBrand;
-      'repeater-components.brands-group-carousel': RepeaterComponentsBrandsGroupCarousel;
-      'repeater-components.slider-item': RepeaterComponentsSliderItem;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
     }
