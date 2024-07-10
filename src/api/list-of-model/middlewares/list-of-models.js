@@ -8,7 +8,11 @@ const populate = {
   brandFamily: {
     populate: {
       brands: {
-        populate: true,
+        populate: {
+          logo: {
+            populate: true,
+          },
+        },
       },
       model_family: {
         populate: true,
@@ -58,7 +62,14 @@ module.exports = (config, { strapi }) => {
       };
     }
 
-    ctx.query = { populate, ...ctx.query };
+    // Add the populate object to the query
+    if (!query.populate) {
+      query.populate = populate;
+    } else {
+      query.populate = { ...query.populate, ...populate };
+    }
+
+    ctx.query = query;
     strapi.log.info(`Query after modification: ${JSON.stringify(ctx.query)}`);
     await next();
   };
