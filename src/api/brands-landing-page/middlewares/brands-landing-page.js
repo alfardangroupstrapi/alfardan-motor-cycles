@@ -84,6 +84,19 @@ const populate = {
       },
     },
   },
+  knowMoreSectionBanner: {
+    populate: {
+      bannerImage: {
+        populate: true,
+      },
+      bannerVideo: {
+        populate: true,
+      },
+      actions: {
+        populate: true,
+      },
+    },
+  },
   footerWidgets: {
     populate: {
       socialMediaLinks: {
