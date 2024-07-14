@@ -1098,6 +1098,7 @@ export interface ApiBrandsLandingPageBrandsLandingPage
     knowMoreSection: Attribute.Component<'brand-single-page.header-hero'>;
     footerWidgets: Attribute.Component<'brand-single-page.footer'>;
     parallaxSectionBanner: Attribute.Component<'component.cta-banner'>;
+    knowMoreSectionBanner: Attribute.Component<'component.cta-banner'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
