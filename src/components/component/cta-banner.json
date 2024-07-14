@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_component_cta_banners",
+  "info": {
+    "displayName": "CTA Banner"
+  },
+  "options": {},
+  "attributes": {
+    "bannerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "bannerVideo": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "captionSubTitle": {
+      "type": "string"
+    },
+    "captionMainTitle": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.button-link"
+    }
+  }
+}
