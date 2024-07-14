@@ -55,6 +55,11 @@
       "type": "component",
       "repeatable": false,
       "component": "component.cta-banner"
+    },
+    "knowMoreSectionBanner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.cta-banner"
     }
   }
 }
