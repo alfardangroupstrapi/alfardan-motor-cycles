@@ -8,13 +8,10 @@
   "attributes": {
     "heroImage": {
       "type": "media",
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
       ]
     },
     "captionSubTitle": {
