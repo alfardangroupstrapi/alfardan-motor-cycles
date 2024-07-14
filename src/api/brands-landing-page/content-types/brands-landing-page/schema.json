@@ -50,6 +50,11 @@
       "type": "component",
       "repeatable": false,
       "component": "brand-single-page.header"
+    },
+    "parallaxSectionBanner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.cta-banner"
     }
   }
 }
