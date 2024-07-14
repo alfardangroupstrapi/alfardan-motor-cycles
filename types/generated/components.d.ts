@@ -20,7 +20,7 @@ export interface BrandSinglePageHeaderHero extends Schema.Component {
     description: '';
   };
   attributes: {
-    heroImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    heroImage: Attribute.Media<"images", true> & Attribute.Required;
     captionSubTitle: Attribute.String;
     captionMainTitle: Attribute.String;
     buttonLink: Attribute.Component<'buttons.button-link'>;
