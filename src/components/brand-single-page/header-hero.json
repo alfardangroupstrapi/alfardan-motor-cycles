@@ -9,9 +9,9 @@
     "heroImage": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
-        "images",
+        "images"
       ]
     },
     "captionSubTitle": {
