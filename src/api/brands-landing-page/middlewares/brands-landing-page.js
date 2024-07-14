@@ -58,6 +58,19 @@ const populate = {
       },
     },
   },
+  parallaxSectionBanner: {
+    populate: {
+      bannerImage: {
+        populate: true,
+      },
+      bannerVideo: {
+        populate: true,
+      },
+      actions: {
+        populate: true,
+      },
+    },
+  },
   knowMoreSection: {
     populate: {
       heroImage: {
