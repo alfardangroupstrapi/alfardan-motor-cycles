@@ -56,6 +56,20 @@ export interface ButtonsButtonLink extends Schema.Component {
   };
 }
 
+export interface ComponentCtaBanner extends Schema.Component {
+  collectionName: 'components_component_cta_banners';
+  info: {
+    displayName: 'CTA Banner';
+  };
+  attributes: {
+    bannerImage: Attribute.Media<'images'> & Attribute.Required;
+    bannerVideo: Attribute.Media<'videos'>;
+    captionSubTitle: Attribute.String;
+    captionMainTitle: Attribute.String;
+    actions: Attribute.Component<'buttons.button-link'>;
+  };
+}
+
 export interface ModelsCategories extends Schema.Component {
   collectionName: 'components_models_categories';
   info: {
