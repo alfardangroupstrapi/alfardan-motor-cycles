@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_component_slider_items",
+  "info": {
+    "displayName": "Slider Item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sliderImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slideCaptionTitle": {
+      "type": "string"
+    },
+    "slideCaptionSubTitle": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.button-link"
+    }
+  }
+}
