@@ -1117,6 +1117,38 @@ export interface ApiBrandsLandingPageBrandsLandingPage
   };
 }
 
+
+export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
+  collectionName: 'home_landing_pages';
+  info: {
+    singularName: 'home-landing-page';
+    pluralName: 'home-landing-pages';
+    displayName: 'Home Landing Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heroSlider: Attribute.Component<'component.slider-item', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-landing-page.home-landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-landing-page.home-landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLifestyleLifestyle extends Schema.CollectionType {
   collectionName: 'lifestyles';
   info: {
