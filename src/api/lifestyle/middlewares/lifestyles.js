@@ -9,7 +9,7 @@ const populate = {
     populate: {
       logo:{
         populate: true,
-      }
+      },
     },
   },
   category: {
