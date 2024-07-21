@@ -6,7 +6,11 @@
 
 const populate = {
   brand: {
-    populate: true,
+    populate: {
+      logo:{
+        populate: true,
+      }
+    },
   },
   category: {
     populate: true,
