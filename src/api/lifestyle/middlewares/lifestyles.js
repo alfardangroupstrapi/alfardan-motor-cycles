@@ -20,6 +20,9 @@ const populate = {
       icon: {
         populate: true,
       },
+      coverPic: {
+        populate: true,
+      },
     },
   },
   featuredImage: {
