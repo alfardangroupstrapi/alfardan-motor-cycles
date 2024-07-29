@@ -15,6 +15,11 @@
     "isEnquiryFormModal": {
       "type": "boolean",
       "default": false
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": ["sametab", "newtab"],
+      "default": "sametab"
     }
   }
 }
