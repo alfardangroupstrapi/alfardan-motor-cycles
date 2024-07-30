@@ -9,7 +9,7 @@
     "Label": {
       "type": "string"
     },
-    "url": {
+    "path": {
       "type": "string"
     },
     "target": {
