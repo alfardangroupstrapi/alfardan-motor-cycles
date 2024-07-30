@@ -11,6 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
     "headerHero": {
       "type": "component",
       "repeatable": false,
