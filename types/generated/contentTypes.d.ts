@@ -1127,7 +1127,7 @@ export interface ApiBrandsLifestyleLandingBrandsLifestyleLanding
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    headerHero: Attribute.Component<'brand-single-page.header-hero'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
