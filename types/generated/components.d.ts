@@ -48,11 +48,12 @@ export interface ButtonsButtonLink extends Schema.Component {
   attributes: {
     Label: Attribute.String;
     URL: Attribute.String;
-    Target: Attribute.Enumeration<['_blank', '_self']> &
-      Attribute.DefaultTo<'_self'>;
-    buttonStyle: Attribute.Enumeration<['theme', 'primary', 'secondary']> &
-      Attribute.DefaultTo<'theme'>;
+    Target: Attribute.Enumeration<["sametab", "newtab", "modal"]> &
+      Attribute.DefaultTo<"sametab">;
+    buttonStyle: Attribute.Enumeration<["theme", "primary", "secondary"]> &
+      Attribute.DefaultTo<"theme">;
     enableButton: Attribute.Boolean & Attribute.DefaultTo<true>;
+    modalTargetID: Attribute.String;
   };
 }
 
