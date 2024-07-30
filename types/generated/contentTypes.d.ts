@@ -1127,6 +1127,11 @@ export interface ApiBrandsLifestyleLandingBrandsLifestyleLanding
     draftAndPublish: true;
   };
   attributes: {
+    brand: Attribute.Relation<
+      'api::brands-lifestyle-landing.brands-lifestyle-landing',
+      'oneToOne',
+      'api::brand.brand'
+    >;
     headerHero: Attribute.Component<'brand-single-page.header-hero'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
