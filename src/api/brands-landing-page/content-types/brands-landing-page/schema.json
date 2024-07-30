@@ -30,16 +30,6 @@
       "repeatable": false,
       "component": "brand-single-page.list-of-available-models"
     },
-    "parallaxBannerSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "brand-single-page.header-hero"
-    },
-    "knowMoreSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "brand-single-page.header-hero"
-    },
     "footerWidgets": {
       "type": "component",
       "repeatable": false,
