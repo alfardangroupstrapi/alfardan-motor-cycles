@@ -1094,8 +1094,6 @@ export interface ApiBrandsLandingPageBrandsLandingPage
     >;
     headerHero: Attribute.Component<'brand-single-page.header-hero'>;
     listOfAvailableModels: Attribute.Component<'brand-single-page.list-of-available-models'>;
-    parallaxBannerSection: Attribute.Component<'brand-single-page.header-hero'>;
-    knowMoreSection: Attribute.Component<'brand-single-page.header-hero'>;
     footerWidgets: Attribute.Component<'brand-single-page.footer'>;
     parallaxSectionBanner: Attribute.Component<'component.cta-banner'>;
     knowMoreSectionBanner: Attribute.Component<'component.cta-banner'>;
