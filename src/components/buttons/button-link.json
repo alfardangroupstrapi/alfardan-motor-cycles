@@ -15,8 +15,8 @@
     },
     "Target": {
       "type": "enumeration",
-      "enum": ["sametab", "newtab", "modal"],
-      "default": "sametab"
+      "enum": ["_self", "_blank", "_modal"],
+      "default": "_self"
     },
     "buttonStyle": {
       "type": "enumeration",
