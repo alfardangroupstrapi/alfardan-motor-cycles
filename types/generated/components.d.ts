@@ -112,8 +112,10 @@ export interface NavigationMenuLink extends Schema.Component {
   attributes: {
     Label: Attribute.String;
     path: Attribute.String;
-    target: Attribute.Enumeration<['sametab', 'newtab', 'modal']> &
+    target: Attribute.Enumeration<['sametab', 'newtab', 'model']> &
       Attribute.DefaultTo<'sametab'>;
+    isEnquiryFormModal: Attribute.Boolean & Attribute.DefaultTo<false>;
+    modalTargetID: Attribute.String;
   };
 }
 
