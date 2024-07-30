@@ -45,19 +45,6 @@ const populate = {
   listOfAvailableModels: {
     populate: true,
   },
-  parallaxBannerSection: {
-    populate: {
-      heroImage: {
-        populate: true,
-      },
-      heroVideo: {
-        populate: true,
-      },
-      buttonLink: {
-        populate: true,
-      },
-    },
-  },
   parallaxSectionBanner: {
     populate: {
       bannerImage: {
@@ -67,19 +54,6 @@ const populate = {
         populate: true,
       },
       actions: {
-        populate: true,
-      },
-    },
-  },
-  knowMoreSection: {
-    populate: {
-      heroImage: {
-        populate: true,
-      },
-      heroVideo: {
-        populate: true,
-      },
-      buttonLink: {
         populate: true,
       },
     },
