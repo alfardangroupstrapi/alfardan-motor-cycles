@@ -15,11 +15,8 @@
     },
     "Target": {
       "type": "enumeration",
-      "enum": [
-        "_blank",
-        "_self"
-      ],
-      "default": "_self"
+      "enum": ["sametab", "newtab", "modal"],
+      "default": "sametab"
     },
     "buttonStyle": {
       "type": "enumeration",
@@ -33,6 +30,9 @@
     "enableButton": {
       "type": "boolean",
       "default": true
+    },
+    "modalTargetID": {
+      "type": "string"
     }
   }
 }
