@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brands_lifestyle_landings",
+  "info": {
+    "singularName": "brands-lifestyle-landing",
+    "pluralName": "brands-lifestyle-landings",
+    "displayName": "Brands Lifestyle Landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}
