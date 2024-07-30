@@ -14,8 +14,15 @@
     },
     "target": {
       "type": "enumeration",
-      "enum": ["sametab", "newtab", "modal"],
+      "enum": ["sametab", "newtab", "model"],
       "default": "sametab"
+    },
+    "isEnquiryFormModal": {
+      "type": "boolean",
+      "default": false
+    },
+    "modalTargetID": {
+      "type": "string"
     }
   }
 }
