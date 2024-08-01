@@ -81,6 +81,11 @@ const populate = {
       },
     },
   },
+  brandChildPages: {
+    heroBanner: {
+      populate: true,
+    },
+  },
 };
 
 module.exports = (config, { strapi }) => {
