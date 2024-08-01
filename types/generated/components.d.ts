@@ -197,6 +197,7 @@ export interface SharedSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'brand-single-page.brand-child-pages': BrandSinglePageBrandChildPages;
       'brand-single-page.footer': BrandSinglePageFooter;
       'brand-single-page.header-hero': BrandSinglePageHeaderHero;
       'brand-single-page.list-of-available-models': BrandSinglePageListOfAvailableModels;
