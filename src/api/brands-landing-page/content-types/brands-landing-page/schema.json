@@ -50,6 +50,11 @@
       "type": "component",
       "repeatable": false,
       "component": "component.cta-banner"
+    },
+    "brandChildPages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "brand-single-page.brand-child-pages"
     }
   }
 }
