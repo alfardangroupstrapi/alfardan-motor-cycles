@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BrandSinglePageBrandChildPages extends Schema.Component {
+  collectionName: 'components_brand_single_page_brand_child_pages';
+  info: {
+    displayName: 'Brand Child Page';
+    description: '';
+  };
+  attributes: {
+    pageTitle: Attribute.String & Attribute.Required;
+    heroBanner: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
 export interface BrandSinglePageFooter extends Schema.Component {
   collectionName: 'components_brand_single_page_footers';
   info: {
