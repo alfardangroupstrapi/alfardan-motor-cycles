@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_brand_single_page_brand_child_pages",
+  "info": {
+    "displayName": "Brand Child Page",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "heroBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
