@@ -82,8 +82,10 @@ const populate = {
     },
   },
   brandChildPages: {
-    heroBanner: {
-      populate: true,
+    populate: {
+      heroBanner: {
+        populate: true,
+      },
     },
   },
 };
