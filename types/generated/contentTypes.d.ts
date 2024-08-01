@@ -1115,42 +1115,6 @@ export interface ApiBrandsLandingPageBrandsLandingPage
   };
 }
 
-export interface ApiBrandsLifestyleLandingBrandsLifestyleLanding
-  extends Schema.CollectionType {
-  collectionName: 'brands_lifestyle_landings';
-  info: {
-    singularName: 'brands-lifestyle-landing';
-    pluralName: 'brands-lifestyle-landings';
-    displayName: 'Brands Lifestyle Landing';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    brand: Attribute.Relation<
-      'api::brands-lifestyle-landing.brands-lifestyle-landing',
-      'oneToOne',
-      'api::brand.brand'
-    >;
-    headerHero: Attribute.Component<'brand-single-page.header-hero'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::brands-lifestyle-landing.brands-lifestyle-landing',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::brands-lifestyle-landing.brands-lifestyle-landing',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
   collectionName: 'home_landing_pages';
   info: {
@@ -1415,7 +1379,6 @@ declare module '@strapi/types' {
       'plugin::slugify.slug': PluginSlugifySlug;
       'api::brand.brand': ApiBrandBrand;
       'api::brands-landing-page.brands-landing-page': ApiBrandsLandingPageBrandsLandingPage;
-      'api::brands-lifestyle-landing.brands-lifestyle-landing': ApiBrandsLifestyleLandingBrandsLifestyleLanding;
       'api::lifestyle.lifestyle': ApiLifestyleLifestyle;
       'api::lifestyle-category.lifestyle-category': ApiLifestyleCategoryLifestyleCategory;
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
