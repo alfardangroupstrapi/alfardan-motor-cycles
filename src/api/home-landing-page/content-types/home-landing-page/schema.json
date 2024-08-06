@@ -19,7 +19,7 @@
     },
     "latestModelsList": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "component.latest-model"
     }
   }
