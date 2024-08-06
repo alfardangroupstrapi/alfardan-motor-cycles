@@ -7,7 +7,7 @@
   "attributes": {
     "latestModel": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::list-of-model.list-of-model"
     }
   }
