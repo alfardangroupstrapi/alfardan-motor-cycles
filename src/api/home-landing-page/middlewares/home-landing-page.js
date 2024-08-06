@@ -17,7 +17,9 @@ const populate = {
   },
   latestModelsList: {
     populate: {
-      populate: true,
+      latestModel:{
+        populate: true,
+      },
     },
   },
 };
