@@ -1132,6 +1132,7 @@ export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
   };
   attributes: {
     heroSlider: Attribute.Component<'component.slider-item', true>;
+    latestModelsList: Attribute.Component<'component.latest-model', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
