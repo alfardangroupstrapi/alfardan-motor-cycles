@@ -83,6 +83,20 @@ export interface ComponentCtaBanner extends Schema.Component {
   };
 }
 
+export interface ComponentSliderItem extends Schema.Component {
+  collectionName: 'components_component_slider_items';
+  info: {
+    displayName: 'Slider Item';
+    description: '';
+  };
+  attributes: {
+    sliderImage: Attribute.Media<'images'>;
+    slideCaptionTitle: Attribute.String;
+    slideCaptionSubTitle: Attribute.String;
+    actions: Attribute.Component<'buttons.button-link'>;
+  };
+}
+
 export interface ModelsCategories extends Schema.Component {
   collectionName: 'components_models_categories';
   info: {
