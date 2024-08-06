@@ -83,6 +83,20 @@ export interface ComponentCtaBanner extends Schema.Component {
   };
 }
 
+export interface ComponentLatestModel extends Schema.Component {
+  collectionName: 'components_component_latest_models';
+  info: {
+    displayName: 'Latest Model';
+  };
+  attributes: {
+    latestModel: Attribute.Relation<
+      'component.latest-model',
+      'oneToOne',
+      'api::list-of-model.list-of-model'
+    >;
+  };
+}
+
 export interface ComponentSliderItem extends Schema.Component {
   collectionName: 'components_component_slider_items';
   info: {
