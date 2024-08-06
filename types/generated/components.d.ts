@@ -91,7 +91,7 @@ export interface ComponentLatestModel extends Schema.Component {
   attributes: {
     latestModel: Attribute.Relation<
       'component.latest-model',
-      'oneToOne',
+      'oneToMany',
       'api::list-of-model.list-of-model'
     >;
   };
