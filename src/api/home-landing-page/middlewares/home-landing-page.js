@@ -17,8 +17,22 @@ const populate = {
   },
   latestModelsList: {
     populate: {
-      latestModel:{
-        populate: true,
+      latestModel: {
+        populate: {
+          brandFamily: {
+            populate: {
+              brands: {
+                populate: true,
+              },
+              model_family: {
+                populate: true,
+              },
+            },
+          },
+          featuredPic: {
+            populate: true,
+          },
+        },
       },
     },
   },
