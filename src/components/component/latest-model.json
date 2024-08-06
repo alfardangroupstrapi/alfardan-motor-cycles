@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_component_latest_models",
+  "info": {
+    "displayName": "Latest Model"
+  },
+  "options": {},
+  "attributes": {
+    "latestModel": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::list-of-model.list-of-model"
+    }
+  }
+}
