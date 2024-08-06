@@ -15,6 +15,11 @@ const populate = {
       },
     },
   },
+  latestModelsList: {
+    populate: {
+      populate: true,
+    },
+  },
 };
 
 module.exports = (config, { strapi }) => {
