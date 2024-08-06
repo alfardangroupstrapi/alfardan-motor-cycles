@@ -216,6 +216,7 @@ declare module '@strapi/types' {
       'brand-single-page.header-hero': BrandSinglePageHeaderHero;
       'brand-single-page.list-of-available-models': BrandSinglePageListOfAvailableModels;
       'buttons.button-link': ButtonsButtonLink;
+      'component.latest-model': ComponentLatestModel;
       'models.categories': ModelsCategories;
       'models.description-tabs': ModelsDescriptionTabs;
       'navigation.menu-link': NavigationMenuLink;
