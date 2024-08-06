@@ -16,6 +16,11 @@
       "type": "component",
       "repeatable": true,
       "component": "component.slider-item"
+    },
+    "latestModelsList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.latest-model"
     }
   }
 }
