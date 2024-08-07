@@ -22,7 +22,11 @@ const populate = {
           brandFamily: {
             populate: {
               brands: {
-                populate: true,
+                populate: {
+                  logo: {
+                    populate: true,
+                  },
+                },
               },
               model_family: {
                 populate: true,
