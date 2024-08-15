@@ -1181,6 +1181,7 @@ export interface ApiLifestyleLifestyle extends Schema.CollectionType {
     >;
     partNumber: Attribute.BigInteger;
     featuredImage: Attribute.Media<'images'>;
+    partNumbers: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
