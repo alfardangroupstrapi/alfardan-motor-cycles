@@ -43,6 +43,6 @@
     },
     "partNumbers": {
       "type": "string"
-    },
+    }
   }
 }
