@@ -40,6 +40,9 @@
       "allowedTypes": [
         "images"
       ]
-    }
+    },
+    "partNumbers": {
+      "type": "string"
+    },
   }
 }
