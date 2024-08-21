@@ -1360,6 +1360,44 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
   };
 }
 
+export interface ApiPromotionPromotion extends Schema.CollectionType {
+  collectionName: 'promotions';
+  info: {
+    singularName: 'promotion';
+    pluralName: 'promotions';
+    displayName: 'Promotion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    brand: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    description: Attribute.Text;
+    featuredImage: Attribute.Media<'images'>;
+    imageGallery: Attribute.Media<'images', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1390,6 +1428,7 @@ declare module '@strapi/types' {
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
       'api::list-of-model.list-of-model': ApiListOfModelListOfModel;
       'api::model-family.model-family': ApiModelFamilyModelFamily;
+      'api::promotion.promotion': ApiPromotionPromotion;
     }
   }
 }
