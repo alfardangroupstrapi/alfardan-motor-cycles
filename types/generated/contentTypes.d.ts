@@ -1366,6 +1366,7 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     singularName: 'promotion';
     pluralName: 'promotions';
     displayName: 'Promotion';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1379,7 +1380,8 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     >;
     description: Attribute.Text;
     featuredImage: Attribute.Media<'images'>;
-    imageGallery: Attribute.Media<'images', true>;
+    validityPeriodInfo: Attribute.Text;
+    expireDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
