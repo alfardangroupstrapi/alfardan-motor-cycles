@@ -4,7 +4,8 @@
   "info": {
     "singularName": "promotion",
     "pluralName": "promotions",
-    "displayName": "Promotion"
+    "displayName": "Promotion",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,18 +24,18 @@
       "type": "text"
     },
     "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "imageGallery": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true
+    "validityPeriodInfo": {
+      "type": "text"
+    },
+    "expireDate": {
+      "type": "date"
     }
   }
 }
