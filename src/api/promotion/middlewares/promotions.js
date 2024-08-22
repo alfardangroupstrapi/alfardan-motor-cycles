@@ -18,6 +18,20 @@ const populate = {
   featuredImage: {
     populate: true,
   },
+  seo: {
+    populate: {
+      metaImage: {
+        populate: true,
+      },
+      metaSocial: {
+        populate: {
+          image: {
+            populate: true,
+          },
+        },
+      },
+    },
+  },
 };
 
 module.exports = (config, { strapi }) => {
