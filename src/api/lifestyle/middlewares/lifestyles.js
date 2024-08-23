@@ -43,17 +43,32 @@ module.exports = (config, { strapi }) => {
       delete query["brand-id"];
       filters.push({ brand: { id: brandId } });
     }
+    if (query["brand-slug"]) {
+      const brandSlug = query["brand-slug"];
+      delete query["brand-slug"];
+      filters.push({ brand: { slug: brandSlug } });
+    }
 
     if (query["cat-id"]) {
       const catId = query["cat-id"];
       delete query["cat-id"];
       filters.push({ category: { id: catId } });
     }
+    if (query["cat-slug"]) {
+      const catSlug = query["cat-slug"];
+      delete query["cat-slug"];
+      filters.push({ category: { slug: catSlug } });
+    }
 
     if (query["subcat-id"]) {
       const subcatId = query["subcat-id"];
       delete query["subcat-id"];
       filters.push({ subCategory: { id: subcatId } });
+    }
+    if (query["subcat-slug"]) {
+      const subcatSlug = query["subcat-slug"];
+      delete query["subcat-slug"];
+      filters.push({ subCategory: { slug: subcatSlug } });
     }
 
     if (filters.length > 0) {
