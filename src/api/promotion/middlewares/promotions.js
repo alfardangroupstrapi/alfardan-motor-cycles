@@ -47,6 +47,11 @@ module.exports = (config, { strapi }) => {
       delete query["brand-id"];
       filters.push({ brand: { id: brandId } });
     }
+    if (query["brand-slug"]) {
+      const brandSlug = query["brand-slug"];
+      delete query["brand-slug"];
+      filters.push({ brand: { slug: brandSlug } });
+    }
 
     if (filters.length > 0) {
       query.filters = {
