@@ -18,6 +18,9 @@ const populate = {
   featuredPic: {
     populate: true,
   },
+  photoGallery: {
+    populate: true,
+  },
   headerHero: {
     populate: {
       heroImage: {
