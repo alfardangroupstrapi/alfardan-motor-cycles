@@ -1384,6 +1384,7 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     expireDate: Attribute.Date;
     seo: Attribute.Component<'shared.seo'>;
     imageGallery: Attribute.Media<'images', true>;
+    isAllBrandPromotion: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
