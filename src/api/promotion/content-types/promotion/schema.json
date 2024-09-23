@@ -48,6 +48,10 @@
       ],
       "type": "media",
       "multiple": true
+    },
+    "isAllBrandPromotion": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
