@@ -10,17 +10,32 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "pluginOptions": {},
   "attributes": {
     "heroSlider": {
       "type": "component",
       "repeatable": true,
-      "component": "component.slider-item"
+      "component": "component.slider-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "latestModelsList": {
       "type": "component",
       "repeatable": false,
-      "component": "component.latest-model"
+      "component": "component.latest-model",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
