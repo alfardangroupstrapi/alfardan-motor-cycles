@@ -1130,6 +1130,11 @@ export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     heroSlider: Attribute.Component<'component.slider-item', true>;
     latestModelsList: Attribute.Component<'component.latest-model', true>;
