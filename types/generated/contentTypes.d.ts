@@ -1136,8 +1136,18 @@ export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
     };
   };
   attributes: {
-    heroSlider: Attribute.Component<'component.slider-item', true>;
-    latestModelsList: Attribute.Component<'component.latest-model', true>;
+    heroSlider: Attribute.Component<'component.slider-item', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    latestModelsList: Attribute.Component<'component.latest-model'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1153,6 +1163,12 @@ export interface ApiHomeLandingPageHomeLandingPage extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::home-landing-page.home-landing-page',
+      'oneToMany',
+      'api::home-landing-page.home-landing-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
