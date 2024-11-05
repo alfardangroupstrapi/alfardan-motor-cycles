@@ -1049,38 +1049,11 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    logo: Attribute.Media<'images'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    brandPrimaryColor: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    brandSecondaryColor: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    name: Attribute.String & Attribute.Required;
+    logo: Attribute.Media<'images'> & Attribute.Required;
+    brandPrimaryColor: Attribute.String;
+    brandSecondaryColor: Attribute.String;
     slug: Attribute.UID<'api::brand.brand', 'name'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1097,12 +1070,6 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::brand.brand',
-      'oneToMany',
-      'api::brand.brand'
-    >;
-    locale: Attribute.String;
   };
 }
 
@@ -1427,13 +1394,13 @@ export interface ApiLifestyleSubCategoryLifestyleSubCategory
     icon: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     coverPic: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1508,13 +1475,13 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     photoGallery: Attribute.Media<'images' | 'videos', true> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1606,7 +1573,7 @@ export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     brand: Attribute.Relation<
@@ -1618,13 +1585,13 @@ export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     gallery: Attribute.Media<'images', true> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     color: Attribute.String &
@@ -1636,13 +1603,13 @@ export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
     yearModel: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     warranty: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     additionalAccessories: Attribute.Text &
@@ -1654,13 +1621,13 @@ export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
     engine: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     millage: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1724,7 +1691,7 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     featuredImage: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     validityPeriodInfo: Attribute.Text &
@@ -1736,7 +1703,7 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     expireDate: Attribute.Date &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     seo: Attribute.Component<'shared.seo'> &
@@ -1748,13 +1715,13 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     imageGallery: Attribute.Media<'images', true> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     isAllBrandPromotion: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }> &
       Attribute.DefaultTo<false>;
