@@ -1095,6 +1095,7 @@ export interface ApiBrandsLandingPageBrandsLandingPage
     headerHero: Attribute.Component<'brand-single-page.header-hero'>;
     listOfAvailableModels: Attribute.Component<'brand-single-page.list-of-available-models'>;
     footerWidgets: Attribute.Component<'brand-single-page.footer'>;
+    primaryNavbar: Attribute.Component<'brand-single-page.header'>;
     parallaxSectionBanner: Attribute.Component<'component.cta-banner'>;
     knowMoreSectionBanner: Attribute.Component<'component.cta-banner'>;
     brandChildPages: Attribute.Component<
@@ -1326,6 +1327,7 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
       >;
     headerHero: Attribute.Component<'brand-single-page.header-hero'>;
     featuredPic: Attribute.Media<'images'> & Attribute.Required;
+    photoGallery: Attribute.Media<'images' | 'videos', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1374,6 +1376,51 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::model-family.model-family',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
+  collectionName: 'pre_owneds';
+  info: {
+    singularName: 'pre-owned';
+    pluralName: 'pre-owneds';
+    displayName: 'PRE-OWNED';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    stickerPrice: Attribute.Integer & Attribute.Required;
+    brand: Attribute.Relation<
+      'api::pre-owned.pre-owned',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    featuredImage: Attribute.Media<'images'> & Attribute.Required;
+    gallery: Attribute.Media<'images', true>;
+    color: Attribute.String;
+    yearModel: Attribute.BigInteger;
+    warranty: Attribute.String;
+    additionalAccessories: Attribute.Text;
+    engine: Attribute.Integer;
+    millage: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pre-owned.pre-owned',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pre-owned.pre-owned',
       'oneToOne',
       'admin::user'
     > &
@@ -1449,11 +1496,13 @@ declare module '@strapi/types' {
       'plugin::slugify.slug': PluginSlugifySlug;
       'api::brand.brand': ApiBrandBrand;
       'api::brands-landing-page.brands-landing-page': ApiBrandsLandingPageBrandsLandingPage;
+      'api::home-landing-page.home-landing-page': ApiHomeLandingPageHomeLandingPage;
       'api::lifestyle.lifestyle': ApiLifestyleLifestyle;
       'api::lifestyle-category.lifestyle-category': ApiLifestyleCategoryLifestyleCategory;
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
       'api::list-of-model.list-of-model': ApiListOfModelListOfModel;
       'api::model-family.model-family': ApiModelFamilyModelFamily;
+      'api::pre-owned.pre-owned': ApiPreOwnedPreOwned;
       'api::promotion.promotion': ApiPromotionPromotion;
     }
   }
