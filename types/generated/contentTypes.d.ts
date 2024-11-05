@@ -1049,11 +1049,38 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    logo: Attribute.Media<'images'> & Attribute.Required;
-    brandPrimaryColor: Attribute.String;
-    brandSecondaryColor: Attribute.String;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brandPrimaryColor: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brandSecondaryColor: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Attribute.UID<'api::brand.brand', 'name'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1070,6 +1097,12 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::brand.brand',
+      'oneToMany',
+      'api::brand.brand'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1085,23 +1118,68 @@ export interface ApiBrandsLandingPageBrandsLandingPage
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    pageTitle: Attribute.String;
+    pageTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     brand: Attribute.Relation<
       'api::brands-landing-page.brands-landing-page',
       'oneToOne',
       'api::brand.brand'
     >;
-    headerHero: Attribute.Component<'brand-single-page.header-hero'>;
-    listOfAvailableModels: Attribute.Component<'brand-single-page.list-of-available-models'>;
-    footerWidgets: Attribute.Component<'brand-single-page.footer'>;
-    primaryNavbar: Attribute.Component<'brand-single-page.header'>;
-    parallaxSectionBanner: Attribute.Component<'component.cta-banner'>;
-    knowMoreSectionBanner: Attribute.Component<'component.cta-banner'>;
+    headerHero: Attribute.Component<'brand-single-page.header-hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    listOfAvailableModels: Attribute.Component<'brand-single-page.list-of-available-models'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footerWidgets: Attribute.Component<'brand-single-page.footer'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    primaryNavbar: Attribute.Component<'brand-single-page.header'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    parallaxSectionBanner: Attribute.Component<'component.cta-banner'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    knowMoreSectionBanner: Attribute.Component<'component.cta-banner'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     brandChildPages: Attribute.Component<
       'brand-single-page.brand-child-pages',
       true
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1117,6 +1195,12 @@ export interface ApiBrandsLandingPageBrandsLandingPage
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::brands-landing-page.brands-landing-page',
+      'oneToMany',
+      'api::brands-landing-page.brands-landing-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1184,8 +1268,18 @@ export interface ApiLifestyleLifestyle extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     brand: Attribute.Relation<
       'api::lifestyle.lifestyle',
       'oneToOne',
@@ -1201,9 +1295,24 @@ export interface ApiLifestyleLifestyle extends Schema.CollectionType {
       'oneToOne',
       'api::lifestyle-sub-category.lifestyle-sub-category'
     >;
-    partNumber: Attribute.BigInteger;
-    featuredImage: Attribute.Media<'images'>;
-    partNumbers: Attribute.String;
+    partNumber: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    featuredImage: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    partNumbers: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1219,6 +1328,12 @@ export interface ApiLifestyleLifestyle extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::lifestyle.lifestyle',
+      'oneToMany',
+      'api::lifestyle.lifestyle'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1234,8 +1349,18 @@ export interface ApiLifestyleCategoryLifestyleCategory
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Attribute.UID<'api::lifestyle-category.lifestyle-category', 'name'>;
     subCategories: Attribute.Relation<
       'api::lifestyle-category.lifestyle-category',
@@ -1257,6 +1382,12 @@ export interface ApiLifestyleCategoryLifestyleCategory
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::lifestyle-category.lifestyle-category',
+      'oneToMany',
+      'api::lifestyle-category.lifestyle-category'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1272,8 +1403,18 @@ export interface ApiLifestyleSubCategoryLifestyleSubCategory
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Attribute.UID<
       'api::lifestyle-sub-category.lifestyle-sub-category',
       'name'
@@ -1283,8 +1424,18 @@ export interface ApiLifestyleSubCategoryLifestyleSubCategory
       'manyToOne',
       'api::lifestyle-category.lifestyle-category'
     >;
-    icon: Attribute.Media<'images'>;
-    coverPic: Attribute.Media<'images'>;
+    icon: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coverPic: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1300,6 +1451,12 @@ export interface ApiLifestyleSubCategoryLifestyleSubCategory
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::lifestyle-sub-category.lifestyle-sub-category',
+      'oneToMany',
+      'api::lifestyle-sub-category.lifestyle-sub-category'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1314,9 +1471,25 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    brandFamily: Attribute.Component<'models.categories'>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brandFamily: Attribute.Component<'models.categories'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     techSpecs: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -1325,9 +1498,25 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
-    headerHero: Attribute.Component<'brand-single-page.header-hero'>;
-    featuredPic: Attribute.Media<'images'> & Attribute.Required;
-    photoGallery: Attribute.Media<'images' | 'videos', true>;
+    headerHero: Attribute.Component<'brand-single-page.header-hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    featuredPic: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    photoGallery: Attribute.Media<'images' | 'videos', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1343,6 +1532,12 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::list-of-model.list-of-model',
+      'oneToMany',
+      'api::list-of-model.list-of-model'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1394,22 +1589,80 @@ export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    stickerPrice: Attribute.Integer & Attribute.Required;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    stickerPrice: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     brand: Attribute.Relation<
       'api::pre-owned.pre-owned',
       'oneToOne',
       'api::brand.brand'
     >;
-    featuredImage: Attribute.Media<'images'> & Attribute.Required;
-    gallery: Attribute.Media<'images', true>;
-    color: Attribute.String;
-    yearModel: Attribute.BigInteger;
-    warranty: Attribute.String;
-    additionalAccessories: Attribute.Text;
-    engine: Attribute.Integer;
-    millage: Attribute.Integer;
+    featuredImage: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    gallery: Attribute.Media<'images', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    color: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    yearModel: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    warranty: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    additionalAccessories: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    engine: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    millage: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1425,6 +1678,12 @@ export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::pre-owned.pre-owned',
+      'oneToMany',
+      'api::pre-owned.pre-owned'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1439,20 +1698,66 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     brand: Attribute.Relation<
       'api::promotion.promotion',
       'oneToOne',
       'api::brand.brand'
     >;
-    description: Attribute.Text;
-    featuredImage: Attribute.Media<'images'>;
-    validityPeriodInfo: Attribute.Text;
-    expireDate: Attribute.Date;
-    seo: Attribute.Component<'shared.seo'>;
-    imageGallery: Attribute.Media<'images', true>;
-    isAllBrandPromotion: Attribute.Boolean & Attribute.DefaultTo<false>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    featuredImage: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    validityPeriodInfo: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    expireDate: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imageGallery: Attribute.Media<'images', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    isAllBrandPromotion: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1468,6 +1773,12 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToMany',
+      'api::promotion.promotion'
+    >;
+    locale: Attribute.String;
   };
 }
 

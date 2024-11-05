@@ -10,16 +10,30 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "brandFamily": {
       "type": "component",
       "repeatable": false,
-      "component": "models.categories"
+      "component": "models.categories",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "techSpecs": {
       "type": "customField",
@@ -32,7 +46,12 @@
     "headerHero": {
       "type": "component",
       "repeatable": false,
-      "component": "brand-single-page.header-hero"
+      "component": "brand-single-page.header-hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "featuredPic": {
       "type": "media",
@@ -40,15 +59,26 @@
       "required": true,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "photoGallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

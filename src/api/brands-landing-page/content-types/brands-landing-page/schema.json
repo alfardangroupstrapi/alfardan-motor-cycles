@@ -10,10 +10,19 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "pageTitle": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "brand": {
       "type": "relation",
@@ -23,38 +32,73 @@
     "headerHero": {
       "type": "component",
       "repeatable": false,
-      "component": "brand-single-page.header-hero"
+      "component": "brand-single-page.header-hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "listOfAvailableModels": {
       "type": "component",
       "repeatable": false,
-      "component": "brand-single-page.list-of-available-models"
+      "component": "brand-single-page.list-of-available-models",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "footerWidgets": {
       "type": "component",
       "repeatable": false,
-      "component": "brand-single-page.footer"
+      "component": "brand-single-page.footer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "primaryNavbar": {
       "displayName": "Header",
       "type": "component",
       "repeatable": false,
-      "component": "brand-single-page.header"
+      "component": "brand-single-page.header",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "parallaxSectionBanner": {
       "type": "component",
       "repeatable": false,
-      "component": "component.cta-banner"
+      "component": "component.cta-banner",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "knowMoreSectionBanner": {
       "type": "component",
       "repeatable": false,
-      "component": "component.cta-banner"
+      "component": "component.cta-banner",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "brandChildPages": {
       "type": "component",
       "repeatable": true,
-      "component": "brand-single-page.brand-child-pages"
+      "component": "brand-single-page.brand-child-pages",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
