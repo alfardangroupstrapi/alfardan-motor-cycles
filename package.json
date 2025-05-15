@@ -10,7 +10,6 @@
     "strapi": "strapi",
     "deploy": "strapi deploy"
   },
-  "devDependencies": {},
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "^0.0.11",
     "@strapi/plugin-cloud": "4.25.3",
@@ -23,6 +22,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
+    "strapi-plugin-import-export-entries": "^1.23.1",
     "strapi-plugin-navigation": "^2.5.2",
     "strapi-plugin-preview-button": "^2.2.2",
     "strapi-plugin-slugify": "^2.3.8",
