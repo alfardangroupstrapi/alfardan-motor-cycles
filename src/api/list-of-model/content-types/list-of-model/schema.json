@@ -41,7 +41,12 @@
         "output": "HTML",
         "preset": "standard"
       },
-      "customField": "plugin::ckeditor.CKEditor"
+      "customField": "plugin::ckeditor.CKEditor",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "headerHero": {
       "type": "component",

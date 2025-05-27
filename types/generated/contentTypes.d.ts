@@ -1464,7 +1464,12 @@ export interface ApiListOfModelListOfModel extends Schema.CollectionType {
           output: 'HTML';
           preset: 'standard';
         }
-      >;
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     headerHero: Attribute.Component<'brand-single-page.header-hero'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1519,8 +1524,18 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Attribute.UID<'api::model-family.model-family', 'name'>;
     brands: Attribute.Relation<
       'api::model-family.model-family',
@@ -1542,6 +1557,12 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::model-family.model-family',
+      'oneToMany',
+      'api::model-family.model-family'
+    >;
+    locale: Attribute.String;
   };
 }
 
