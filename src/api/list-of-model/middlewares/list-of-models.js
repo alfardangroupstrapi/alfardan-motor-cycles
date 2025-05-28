@@ -11,7 +11,11 @@ const populate = {
         populate: true,
       },
       model_family: {
-        populate: true,
+        populate:{
+          localizations: true,
+
+        }
+
       },
     },
   },
