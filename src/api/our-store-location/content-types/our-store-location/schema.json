@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_store_locations",
+  "info": {
+    "singularName": "our-store-location",
+    "pluralName": "our-store-locations",
+    "displayName": "Our Store Location",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "section_title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "locations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "store-location.location-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

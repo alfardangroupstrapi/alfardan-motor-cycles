@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_store_location_opening_rows",
+  "info": {
+    "displayName": "opening_row"
+  },
+  "options": {},
+  "attributes": {
+    "days": {
+      "type": "string"
+    },
+    "hours": {
+      "type": "string"
+    }
+  }
+}

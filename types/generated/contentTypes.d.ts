@@ -1566,6 +1566,59 @@ export interface ApiModelFamilyModelFamily extends Schema.CollectionType {
   };
 }
 
+export interface ApiOurStoreLocationOurStoreLocation extends Schema.SingleType {
+  collectionName: 'our_store_locations';
+  info: {
+    singularName: 'our-store-location';
+    pluralName: 'our-store-locations';
+    displayName: 'Our Store Location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    section_title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locations: Attribute.Component<'store-location.location-item', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-store-location.our-store-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-store-location.our-store-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::our-store-location.our-store-location',
+      'oneToMany',
+      'api::our-store-location.our-store-location'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPreOwnedPreOwned extends Schema.CollectionType {
   collectionName: 'pre_owneds';
   info: {
@@ -1801,6 +1854,7 @@ declare module '@strapi/types' {
       'api::lifestyle-sub-category.lifestyle-sub-category': ApiLifestyleSubCategoryLifestyleSubCategory;
       'api::list-of-model.list-of-model': ApiListOfModelListOfModel;
       'api::model-family.model-family': ApiModelFamilyModelFamily;
+      'api::our-store-location.our-store-location': ApiOurStoreLocationOurStoreLocation;
       'api::pre-owned.pre-owned': ApiPreOwnedPreOwned;
       'api::promotion.promotion': ApiPromotionPromotion;
     }

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_location_item_location_items",
+  "info": {
+    "displayName": "location_item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "days_hours": {
+      "type": "component",
+      "repeatable": true,
+      "component": "store-location.opening-row"
+    },
+    "map_embed_url": {
+      "type": "text"
+    }
+  }
+}

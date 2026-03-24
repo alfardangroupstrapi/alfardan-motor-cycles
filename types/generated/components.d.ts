@@ -1,5 +1,30 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface StoreLocationOpeningRow extends Schema.Component {
+  collectionName: 'components_store_location_opening_rows';
+  info: {
+    displayName: 'opening_row';
+  };
+  attributes: {
+    days: Attribute.String;
+    hours: Attribute.String;
+  };
+}
+
+export interface StoreLocationLocationItem extends Schema.Component {
+  collectionName: 'components_location_item_location_items';
+  info: {
+    displayName: 'location_item';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    address: Attribute.Text;
+    days_hours: Attribute.Component<'store-location.opening-row', true>;
+    map_embed_url: Attribute.Text;
+  };
+}
+
 export interface SharedSeo extends Schema.Component {
   collectionName: 'components_shared_seos';
   info: {
@@ -112,6 +137,25 @@ export interface ModelsCategories extends Schema.Component {
   };
 }
 
+export interface ButtonsButtonLink extends Schema.Component {
+  collectionName: 'components_buttons_button_links';
+  info: {
+    displayName: 'buttonLink';
+    icon: 'attachment';
+    description: '';
+  };
+  attributes: {
+    Label: Attribute.String;
+    URL: Attribute.String;
+    Target: Attribute.Enumeration<['sametab', 'newtab', 'modal']> &
+      Attribute.DefaultTo<'sametab'>;
+    buttonStyle: Attribute.Enumeration<['theme', 'primary', 'secondary']> &
+      Attribute.DefaultTo<'theme'>;
+    enableButton: Attribute.Boolean & Attribute.DefaultTo<true>;
+    modalTargetID: Attribute.String;
+  };
+}
+
 export interface ComponentSliderItem extends Schema.Component {
   collectionName: 'components_component_slider_items';
   info: {
@@ -151,25 +195,6 @@ export interface ComponentCtaBanner extends Schema.Component {
     captionSubTitle: Attribute.String;
     captionMainTitle: Attribute.String;
     actions: Attribute.Component<'buttons.button-link'>;
-  };
-}
-
-export interface ButtonsButtonLink extends Schema.Component {
-  collectionName: 'components_buttons_button_links';
-  info: {
-    displayName: 'buttonLink';
-    icon: 'attachment';
-    description: '';
-  };
-  attributes: {
-    Label: Attribute.String;
-    URL: Attribute.String;
-    Target: Attribute.Enumeration<['sametab', 'newtab', 'modal']> &
-      Attribute.DefaultTo<'sametab'>;
-    buttonStyle: Attribute.Enumeration<['theme', 'primary', 'secondary']> &
-      Attribute.DefaultTo<'theme'>;
-    enableButton: Attribute.Boolean & Attribute.DefaultTo<true>;
-    modalTargetID: Attribute.String;
   };
 }
 
@@ -256,16 +281,18 @@ export interface BrandSinglePageBrandChildPages extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'store-location.opening-row': StoreLocationOpeningRow;
+      'store-location.location-item': StoreLocationLocationItem;
       'shared.seo': SharedSeo;
       'shared.meta-social': SharedMetaSocial;
       'navigation.social-media': NavigationSocialMedia;
       'navigation.menu-link': NavigationMenuLink;
       'models.description-tabs': ModelsDescriptionTabs;
       'models.categories': ModelsCategories;
+      'buttons.button-link': ButtonsButtonLink;
       'component.slider-item': ComponentSliderItem;
       'component.latest-model': ComponentLatestModel;
       'component.cta-banner': ComponentCtaBanner;
-      'buttons.button-link': ButtonsButtonLink;
       'brand-single-page.top-links': BrandSinglePageTopLinks;
       'brand-single-page.list-of-available-models': BrandSinglePageListOfAvailableModels;
       'brand-single-page.header': BrandSinglePageHeader;
