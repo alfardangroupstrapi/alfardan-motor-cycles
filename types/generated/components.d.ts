@@ -137,25 +137,6 @@ export interface ModelsCategories extends Schema.Component {
   };
 }
 
-export interface ButtonsButtonLink extends Schema.Component {
-  collectionName: 'components_buttons_button_links';
-  info: {
-    displayName: 'buttonLink';
-    icon: 'attachment';
-    description: '';
-  };
-  attributes: {
-    Label: Attribute.String;
-    URL: Attribute.String;
-    Target: Attribute.Enumeration<['sametab', 'newtab', 'modal']> &
-      Attribute.DefaultTo<'sametab'>;
-    buttonStyle: Attribute.Enumeration<['theme', 'primary', 'secondary']> &
-      Attribute.DefaultTo<'theme'>;
-    enableButton: Attribute.Boolean & Attribute.DefaultTo<true>;
-    modalTargetID: Attribute.String;
-  };
-}
-
 export interface ComponentSliderItem extends Schema.Component {
   collectionName: 'components_component_slider_items';
   info: {
@@ -167,6 +148,18 @@ export interface ComponentSliderItem extends Schema.Component {
     slideCaptionTitle: Attribute.String;
     slideCaptionSubTitle: Attribute.String;
     actions: Attribute.Component<'buttons.button-link'>;
+  };
+}
+
+export interface ComponentMediaWithCaptions extends Schema.Component {
+  collectionName: 'components_component_media_with_captions';
+  info: {
+    displayName: 'mediaWithCaptions';
+  };
+  attributes: {
+    imageFiles: Attribute.Media<'images', true>;
+    videoFile: Attribute.Media<'videos'>;
+    mediaCaption: Attribute.Text;
   };
 }
 
@@ -195,6 +188,25 @@ export interface ComponentCtaBanner extends Schema.Component {
     captionSubTitle: Attribute.String;
     captionMainTitle: Attribute.String;
     actions: Attribute.Component<'buttons.button-link'>;
+  };
+}
+
+export interface ButtonsButtonLink extends Schema.Component {
+  collectionName: 'components_buttons_button_links';
+  info: {
+    displayName: 'buttonLink';
+    icon: 'attachment';
+    description: '';
+  };
+  attributes: {
+    Label: Attribute.String;
+    URL: Attribute.String;
+    Target: Attribute.Enumeration<['sametab', 'newtab', 'modal']> &
+      Attribute.DefaultTo<'sametab'>;
+    buttonStyle: Attribute.Enumeration<['theme', 'primary', 'secondary']> &
+      Attribute.DefaultTo<'theme'>;
+    enableButton: Attribute.Boolean & Attribute.DefaultTo<true>;
+    modalTargetID: Attribute.String;
   };
 }
 
@@ -289,10 +301,11 @@ declare module '@strapi/types' {
       'navigation.menu-link': NavigationMenuLink;
       'models.description-tabs': ModelsDescriptionTabs;
       'models.categories': ModelsCategories;
-      'buttons.button-link': ButtonsButtonLink;
       'component.slider-item': ComponentSliderItem;
+      'component.media-with-captions': ComponentMediaWithCaptions;
       'component.latest-model': ComponentLatestModel;
       'component.cta-banner': ComponentCtaBanner;
+      'buttons.button-link': ButtonsButtonLink;
       'brand-single-page.top-links': BrandSinglePageTopLinks;
       'brand-single-page.list-of-available-models': BrandSinglePageListOfAvailableModels;
       'brand-single-page.header': BrandSinglePageHeader;
