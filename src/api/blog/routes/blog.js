@@ -11,5 +11,8 @@ module.exports = createCoreRouter("api::blog.blog", {
     find: {
       middlewares: ["api::blog.blog"],
     },
+    findOne: {
+      middlewares: ["api::blog.blog"],
+    },
   },
 });
