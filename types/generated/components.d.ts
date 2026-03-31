@@ -151,6 +151,17 @@ export interface ComponentSliderItem extends Schema.Component {
   };
 }
 
+export interface ComponentPageBanner extends Schema.Component {
+  collectionName: 'components_component_page_banners';
+  info: {
+    displayName: 'Page Banner';
+  };
+  attributes: {
+    headerImage: Attribute.Media<'images'>;
+    headerVideo: Attribute.Media<'videos'>;
+  };
+}
+
 export interface ComponentMediaWithCaptions extends Schema.Component {
   collectionName: 'components_component_media_with_captions';
   info: {
@@ -174,6 +185,16 @@ export interface ComponentLatestModel extends Schema.Component {
       'oneToMany',
       'api::list-of-model.list-of-model'
     >;
+  };
+}
+
+export interface ComponentImageGallery extends Schema.Component {
+  collectionName: 'components_component_image_galleries';
+  info: {
+    displayName: 'imageGallery';
+  };
+  attributes: {
+    galleryImage: Attribute.Media<'images', true>;
   };
 }
 
@@ -302,8 +323,10 @@ declare module '@strapi/types' {
       'models.description-tabs': ModelsDescriptionTabs;
       'models.categories': ModelsCategories;
       'component.slider-item': ComponentSliderItem;
+      'component.page-banner': ComponentPageBanner;
       'component.media-with-captions': ComponentMediaWithCaptions;
       'component.latest-model': ComponentLatestModel;
+      'component.image-gallery': ComponentImageGallery;
       'component.cta-banner': ComponentCtaBanner;
       'buttons.button-link': ButtonsButtonLink;
       'brand-single-page.top-links': BrandSinglePageTopLinks;

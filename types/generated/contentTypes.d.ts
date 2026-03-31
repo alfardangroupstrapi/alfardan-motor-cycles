@@ -1091,17 +1091,23 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    mediaWithCaptions: Attribute.Component<'component.media-with-captions'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     blog_category: Attribute.Relation<
       'api::blog.blog',
       'manyToOne',
       'api::blog-category.blog-category'
     >;
+    pageBanner: Attribute.Component<'component.page-banner'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imageGallery: Attribute.Component<'component.image-gallery'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

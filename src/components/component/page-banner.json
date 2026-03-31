@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_component_page_banners",
+  "info": {
+    "displayName": "Page Banner"
+  },
+  "options": {},
+  "attributes": {
+    "headerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "headerVideo": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -70,7 +70,13 @@
       },
       "type": "blocks"
     },
-    "mediaWithCaptions": {
+    "blog_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog-category.blog-category",
+      "inversedBy": "blogs"
+    },
+    "pageBanner": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -78,13 +84,17 @@
           "localized": true
         }
       },
-      "component": "component.media-with-captions"
+      "component": "component.page-banner"
     },
-    "blog_category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::blog-category.blog-category",
-      "inversedBy": "blogs"
+    "imageGallery": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "component.image-gallery"
     }
   }
 }
