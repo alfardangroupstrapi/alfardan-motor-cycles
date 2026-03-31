@@ -14,12 +14,19 @@ module.exports = createCoreController("api::blog.blog", ({ strapi }) => ({
         coverImage: {
           populate: true,
         },
-        mediaWithCaptions: {
+        pageBanner: {
           populate: {
-            imageFiles: {
+            headerImage: {
               populate: true,
             },
-            videoFile: {
+            headerVideo: {
+              populate: true,
+            },
+          },
+        },
+        imageGallery: {
+          populate: {
+            galleryImage: {
               populate: true,
             },
           },
